@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 function Player({ name, isCurrentPlayer, onKill }) {
   return (
@@ -8,5 +8,11 @@ function Player({ name, isCurrentPlayer, onKill }) {
     </div>
   );
 }
+
+Player.propTypes = {
+  name: PropTypes.string.isRequired,
+  isCurrentPlayer: PropTypes.bool.isRequired,
+  onKill: PropTypes.func.isRequired,
+};
 
 export default Player;

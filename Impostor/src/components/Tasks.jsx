@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import PropTypes from "prop-types";
+import { useState } from "react";
 const tasks = [
   "Fix Wiring",
   "Clean Vents",
@@ -39,5 +39,10 @@ function Tasks({ isImpostor, onCompleteTask }) {
     </div>
   );
 }
+
+Tasks.propTypes = {
+  isImpostor: PropTypes.bool.isRequired,
+  onCompleteTask: PropTypes.func.isRequired,
+};
 
 export default Tasks;

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import Player from "./Player";
 import Tasks from "./Tasks";
 import { assignRoles, checkGameEnd } from "../utils/gameLogic";
@@ -15,9 +16,9 @@ function GameRoom({ playerName, roomCode }) {
     setPlayers(newPlayers);
 
     // Assign roles
-    const { impostors, crew } = assignRoles(newPlayers);
+    const { impostors } = assignRoles(newPlayers);
     setIsImpostor(impostors.includes(playerName));
-  }, []);
+  }, [playerName]);
 
   const handleKill = (target) => {
     if (isImpostor) {
@@ -55,5 +56,10 @@ function GameRoom({ playerName, roomCode }) {
     </div>
   );
 }
+
+GameRoom.propTypes = {
+  playerName: PropTypes.string.isRequired,
+  roomCode: PropTypes.string.isRequired,
+};
 
 export default GameRoom;
